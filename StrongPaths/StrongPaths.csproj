@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\StrongStrings\StrongStrings\StrongStrings.csproj" />
+  </ItemGroup>
+</Project>
