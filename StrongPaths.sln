@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrongPaths", "StrongPaths\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrongStrings", "StrongStrings\StrongStrings\StrongStrings.csproj", "{E7E518A4-D642-4A1B-849B-27A5A1F43371}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrongPaths.Test", "StrongPaths.Test\StrongPaths.Test.csproj", "{139DDA48-F6B7-4D35-819A-A4336EB45B9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrongStrings.Test", "StrongStrings\StrongStrings.Test\StrongStrings.Test.csproj", "{23B20C4F-0BC4-4794-9517-E765EAA56BE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E7E518A4-D642-4A1B-849B-27A5A1F43371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7E518A4-D642-4A1B-849B-27A5A1F43371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7E518A4-D642-4A1B-849B-27A5A1F43371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{139DDA48-F6B7-4D35-819A-A4336EB45B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139DDA48-F6B7-4D35-819A-A4336EB45B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139DDA48-F6B7-4D35-819A-A4336EB45B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139DDA48-F6B7-4D35-819A-A4336EB45B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B20C4F-0BC4-4794-9517-E765EAA56BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B20C4F-0BC4-4794-9517-E765EAA56BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B20C4F-0BC4-4794-9517-E765EAA56BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B20C4F-0BC4-4794-9517-E765EAA56BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

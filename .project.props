@@ -1,10 +1,8 @@
 <Project>
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <UseWindowsForms>false</UseWindowsForms>
-    <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>alpha.1</VersionSuffix>
-    <RepositoryUrl>https://github.com/ktsu-io/StrongStrings.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/ktsu-io/StrongStrings</PackageProjectUrl>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <UseWindowsForms>false</UseWindowsForms>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>alpha.1</VersionSuffix>
+    </PropertyGroup>
 </Project>

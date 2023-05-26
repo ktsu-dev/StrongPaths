@@ -13,13 +13,19 @@
     <AnalysisLevel>latest-all</AnalysisLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <WarningLevel>9999</WarningLevel>
-    <NoWarn>CA1724;CA1034;CA1000</NoWarn>
+    <NoWarn>CA1724;CA1034;CA1000;IDE1006</NoWarn>
     <IncludeContentInPack>True</IncludeContentInPack>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\.project.props" />
     <None Include="..\$(PackageLicenseFile)" Pack="True" PackagePath="" Visible="False" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(RootNamespace).Test</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 
 </Project>
