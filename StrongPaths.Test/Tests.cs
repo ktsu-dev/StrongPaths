@@ -5,19 +5,15 @@ namespace ktsu.io.StrongPaths.Test;
 [TestClass]
 public class Tests
 {
-	private static string CDrive => @"c:\";
 	private static string Yeet => "Yeet";
 	private static string DotYeet => ".Yeet";
-	private static string CDriveYeet => $"{CDrive}{Yeet}";
-	private static string CDriveWindows => @"c:\Windows";
 	private static string FullyQualifiedPath => Environment.CurrentDirectory;
-	private static string CDriveWindowsNotepad => @"c:\Windows\notepad.exe";
 
 	[TestMethod]
 	public void TestStrongPath()
 	{
 		var path1 = (StrongPath)Yeet;
-		var path2 = (StrongPath)CDrive;
+		var path2 = (StrongPath)FullyQualifiedPath;
 		_ = Assert.ThrowsException<ArgumentNullException>(action: () => { _ = (StrongPath)(string)null!; });
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (StrongPath)Path.GetInvalidFileNameChars());
 	}
@@ -46,7 +42,7 @@ public class Tests
 	[TestMethod]
 	public void TestDirectoryPath()
 	{
-		var path = (DirectoryPath)CDriveWindows;
+		var path = (DirectoryPath)FullyQualifiedPath;
 		File.WriteAllText(path: DotYeet, contents: Yeet);
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (DirectoryPath)DotYeet);
 	}
@@ -54,7 +50,7 @@ public class Tests
 	[TestMethod]
 	public void TestFilePath()
 	{
-		var path = (FilePath)CDriveWindowsNotepad;
+		var path = (FilePath)DotYeet;
 		Directory.CreateDirectory(path: Yeet);
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FilePath)Yeet);
 	}
