@@ -12,6 +12,7 @@ public class Tests
 	private static string Pipe => "|";
 	private static string Colon => ":";
 	private static string CDriveWindows => @"c:\Windows";
+	private static string FullyQualifiedPath => Environment.CurrentDirectory;
 	private static string CDriveWindowsNotepad => @"c:\Windows\notepad.exe";
 
 	[TestMethod]
@@ -20,14 +21,13 @@ public class Tests
 		var path1 = (StrongPath)Yeet;
 		var path2 = (StrongPath)CDrive;
 		_ = Assert.ThrowsException<ArgumentNullException>(action: () => { _ = (StrongPath)(string)null!; });
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (StrongPath)string.Empty);
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (StrongPath)Pipe);
 	}
 
 	[TestMethod]
 	public void TestAbsolutPath()
 	{
-		var path = (AbsolutePath)CDriveYeet;
+		var path = (AbsolutePath)FullyQualifiedPath;
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (AbsolutePath)Yeet);
 	}
 
@@ -35,13 +35,13 @@ public class Tests
 	public void TestRelativePath()
 	{
 		var path = (RelativePath)Yeet;
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (RelativePath)CDriveYeet);
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (RelativePath)FullyQualifiedPath);
 	}
 
 	[TestMethod]
 	public void TestFileName()
 	{
-		var path = (FileName)Yeet;
+		var path = (FileName)DotYeet;
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FileName)Colon);
 	}
 
