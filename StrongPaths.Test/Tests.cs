@@ -9,8 +9,6 @@ public class Tests
 	private static string Yeet => "Yeet";
 	private static string DotYeet => ".Yeet";
 	private static string CDriveYeet => $"{CDrive}{Yeet}";
-	private static string Pipe => "|";
-	private static string Colon => ":";
 	private static string CDriveWindows => @"c:\Windows";
 	private static string FullyQualifiedPath => Environment.CurrentDirectory;
 	private static string CDriveWindowsNotepad => @"c:\Windows\notepad.exe";
@@ -21,7 +19,7 @@ public class Tests
 		var path1 = (StrongPath)Yeet;
 		var path2 = (StrongPath)CDrive;
 		_ = Assert.ThrowsException<ArgumentNullException>(action: () => { _ = (StrongPath)(string)null!; });
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (StrongPath)Pipe);
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (StrongPath)Path.GetInvalidFileNameChars());
 	}
 
 	[TestMethod]
@@ -42,7 +40,7 @@ public class Tests
 	public void TestFileName()
 	{
 		var path = (FileName)DotYeet;
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FileName)Colon);
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FileName)Path.GetInvalidFileNameChars());
 	}
 
 	[TestMethod]
