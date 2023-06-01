@@ -1,3 +1,4 @@
+// Generated code. Do not modify.
 namespace ktsu.io.StrongPaths;
 
 public sealed record StrongPath

@@ -1,22 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\StrongStrings\StrongStrings\StrongStrings.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\StrongStrings\StrongStrings\StrongStrings.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Generated\StrongPath.log">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>StrongPath.tt</DependentUpon>
-    </None>
-    <None Update="Generated\StrongPath.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StrongPath.log</LastGenOutput>
-    </None>
-  </ItemGroup>
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <Exec Command="dotnet-script GenerateCode.csx"/>
+    </Target>
 
 </Project>
