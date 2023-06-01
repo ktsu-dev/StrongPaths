@@ -4,7 +4,7 @@
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <Exec Command="dotnet-script GenerateCode.csx" />
+        <Exec Command="dotnet-script --verbosity info GenerateCode.csx" />
     </Target>
 
 </Project>
