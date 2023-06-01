@@ -49,14 +49,16 @@ public class Tests
 	public void TestDirectoryPath()
 	{
 		var path = (DirectoryPath)CDriveWindows;
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (DirectoryPath)CDriveWindowsNotepad);
+		File.WriteAllText(path: DotYeet, contents: Yeet);
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (DirectoryPath)DotYeet);
 	}
 
 	[TestMethod]
 	public void TestFilePath()
 	{
 		var path = (FilePath)CDriveWindowsNotepad;
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FilePath)CDriveWindows);
+		Directory.CreateDirectory(path: Yeet);
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FilePath)Yeet);
 	}
 
 	[TestMethod]
