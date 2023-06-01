@@ -1,5 +1,0 @@
-<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ output extension=".log" #>
-<#@ include file="..\\..\\StrongStrings\\StrongStrings\\MakeClasses.ttinclude" once="true" #>
-<# MakeClasses("AnyStrongPath", "StrongPath"); #>
-Generated <#= this.Host.TemplateFile #>

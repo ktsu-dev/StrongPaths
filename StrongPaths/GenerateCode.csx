@@ -1,4 +1,4 @@
-﻿#load "..\StrongStrings\StrongStrings\MakeClasses.func.csx"
+﻿#load "../StrongStrings/StrongStrings/MakeClasses.func.csx"
 
 MakeClasses("ktsu.io.StrongPaths", "AnyStrongPath", "StrongPath");
 MakeClasses("ktsu.io.StrongPaths", "AnyRelativePath", "RelativePath");

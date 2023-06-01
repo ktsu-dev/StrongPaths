@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <ProjectReference Include="..\StrongStrings\StrongStrings\StrongStrings.csproj" />
+        <ProjectReference Include="..\StrongStrings\StrongStrings\StrongStrings.csproj"/>
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <Exec Command="dotnet-script GenerateCode.csx" />
+        <Exec Command="dotnet-script GenerateCode.csx"/>
     </Target>
 
 </Project>
