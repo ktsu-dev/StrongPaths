@@ -1,5 +1,6 @@
 namespace ktsu.io.StrongPaths;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRelative>
@@ -24,5 +25,10 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 	}
 }
 
+[SuppressMessage(category: "Usage", checkId: "CA2225:Operator overloads have named alternates", Justification = "The base class already has these")]
 public record AnyRelativePath<TDerived> : AnyRelativePath
-	where TDerived : AnyRelativePath<TDerived>;
+	where TDerived : AnyRelativePath<TDerived>
+{
+	public static explicit operator AnyRelativePath<TDerived>(char[]? value) { return FromCharArray<TDerived>(value: value); }
+	public static explicit operator AnyRelativePath<TDerived>(string? value) { return FromString<TDerived>(value: value); }
+}

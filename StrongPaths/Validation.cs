@@ -67,6 +67,19 @@ public abstract class IsFile : IValidator
 	}
 }
 
+public abstract class IsFileName : IValidator
+{
+	public static bool IsValid(AnyStrongString? strongString)
+	{
+		if (strongString is null)
+		{
+			throw new ArgumentNullException(paramName: nameof(strongString));
+		}
+
+		return !string.IsNullOrEmpty(value: Path.GetFileName(path: strongString)) && !Directory.Exists(path: strongString) && !strongString.Intersect(second: Path.GetInvalidFileNameChars()).Any();
+	}
+}
+
 public abstract class DoesExist : IValidator
 {
 	public static bool IsValid(AnyStrongString? strongString)
