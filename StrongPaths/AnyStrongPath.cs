@@ -28,6 +28,8 @@ public abstract record AnyStrongPath : StrongStringAbstract<AnyStrongPath, IsPat
 	///     FileName has no extensions
 	/// </summary>
 	public FileExtension FullFileExtension => (FileExtension)((string?)WeakString.Split(separator: '.', count: 2).Skip(count: 1).FirstOrDefault()?.Prepend(element: '.') ?? string.Empty);
+
+	public FileName FileName => (FileName)Path.GetFileName(WeakString);
 }
 
 [SuppressMessage(category: "Usage", checkId: "CA2225:Operator overloads have named alternates", Justification = "The base class already has these")]

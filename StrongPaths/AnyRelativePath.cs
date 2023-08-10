@@ -6,9 +6,12 @@ using System.Globalization;
 public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRelative>
 {
 	//Inspired by: https://stackoverflow.com/questions/275689/how-to-get-relative-path-from-absolute-path
-	internal static TDest Make<TDest>(AnyStrongPath from, AnyStrongPath to)
+	public static TDest Make<TDest>(AnyStrongPath from, AnyStrongPath to)
 		where TDest : AnyRelativePath
 	{
+		ArgumentNullException.ThrowIfNull(from, nameof(from));
+		ArgumentNullException.ThrowIfNull(to, nameof(to));
+
 		var fromInfo = new FileInfo(fileName: from.ToString(provider: CultureInfo.InvariantCulture)!);
 		var toInfo = new FileInfo(fileName: to.ToString(provider: CultureInfo.InvariantCulture)!);
 
