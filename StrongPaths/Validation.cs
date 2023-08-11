@@ -102,7 +102,7 @@ public abstract class HasAnyExtension : IValidator
 			throw new ArgumentNullException(paramName: nameof(strongString));
 		}
 
-		return strongString is AnyStrongPath strongPath && string.IsNullOrEmpty(value: strongPath.FileExtension);
+		return strongString is AnyFilePath filePath && string.IsNullOrEmpty(value: filePath.FileExtension);
 	}
 }
 
@@ -115,7 +115,7 @@ public abstract class HasSpecificExtension : IValidator
 			throw new ArgumentNullException(paramName: nameof(strongString));
 		}
 
-		return strongString is AnyStrongPath strongPath && strongPath.ExpectedFileExtensions.Contains(item: strongPath.FileExtension);
+		return strongString is AnyFilePath filePath && filePath.ExpectedFileExtensions.Contains(item: filePath.FileExtension);
 	}
 }
 
