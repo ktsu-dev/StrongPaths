@@ -1,3 +1,3 @@
 [submodule "StrongStrings"]
 	path = StrongStrings
-	url = git@github.com:ktsu-io/StrongStrings.git
+	url = https://github.com/ktsu-io/StrongStrings.git
