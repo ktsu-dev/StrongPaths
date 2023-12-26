@@ -8,6 +8,6 @@ public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, Is
 public record AnyDirectoryPath<TDerived> : AnyDirectoryPath
 	where TDerived : AnyDirectoryPath<TDerived>
 {
-	public static explicit operator AnyDirectoryPath<TDerived>(char[]? value) { return FromCharArray<TDerived>(value: value); }
-	public static explicit operator AnyDirectoryPath<TDerived>(string? value) { return FromString<TDerived>(value: value); }
+	public static explicit operator AnyDirectoryPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
+	public static explicit operator AnyDirectoryPath<TDerived>(string? value) => FromString<TDerived>(value: value);
 }

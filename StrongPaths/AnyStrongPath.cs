@@ -12,6 +12,6 @@ public abstract record AnyStrongPath : StrongStringAbstract<AnyStrongPath, IsPat
 public abstract record AnyStrongPath<TDerived> : AnyStrongPath
 	where TDerived : AnyStrongPath<TDerived>
 {
-	public static explicit operator AnyStrongPath<TDerived>(char[]? value) { return FromCharArray<TDerived>(value: value); }
-	public static explicit operator AnyStrongPath<TDerived>(string? value) { return FromString<TDerived>(value: value); }
+	public static explicit operator AnyStrongPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
+	public static explicit operator AnyStrongPath<TDerived>(string? value) => FromString<TDerived>(value: value);
 }

@@ -21,7 +21,7 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 		var fromUri = new Uri(uriString: fromPath);
 		var toUri = new Uri(uriString: toPath);
 
-		Uri relativeUri = fromUri.MakeRelativeUri(uri: toUri);
+		var relativeUri = fromUri.MakeRelativeUri(uri: toUri);
 		string relativePath = Uri.UnescapeDataString(stringToUnescape: relativeUri.ToString()).Replace(oldChar: '/', newChar: Path.DirectorySeparatorChar).Replace(oldChar: '\\', newChar: Path.DirectorySeparatorChar);
 
 		return FromString<TDest>(value: relativePath);
@@ -32,6 +32,6 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 public record AnyRelativePath<TDerived> : AnyRelativePath
 	where TDerived : AnyRelativePath<TDerived>
 {
-	public static explicit operator AnyRelativePath<TDerived>(char[]? value) { return FromCharArray<TDerived>(value: value); }
-	public static explicit operator AnyRelativePath<TDerived>(string? value) { return FromString<TDerived>(value: value); }
+	public static explicit operator AnyRelativePath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
+	public static explicit operator AnyRelativePath<TDerived>(string? value) => FromString<TDerived>(value: value);
 }

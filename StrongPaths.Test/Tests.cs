@@ -7,6 +7,7 @@ public class Tests
 {
 	private static string Yeet => "Yeet";
 	private static string DotYeet => ".Yeet";
+	private static string KtsuDotIoDotYeet => "ktsu.io.Yeet";
 	private static string FullyQualifiedPath => Environment.CurrentDirectory;
 
 	[TestMethod]
@@ -43,6 +44,7 @@ public class Tests
 	public void TestDirectoryPath()
 	{
 		var path = (DirectoryPath)FullyQualifiedPath;
+		var path2 = (DirectoryPath)KtsuDotIoDotYeet;
 		File.WriteAllText(path: DotYeet, contents: Yeet);
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (DirectoryPath)DotYeet);
 	}

@@ -38,7 +38,7 @@ public abstract class IsDirectory : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !string.IsNullOrEmpty(value: Path.GetDirectoryName(path: strongString)) && !File.Exists(path: strongString);
+		return !string.IsNullOrEmpty(value: strongString) && !File.Exists(path: strongString);
 	}
 }
 
@@ -48,7 +48,7 @@ public abstract class IsFile : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !string.IsNullOrEmpty(value: Path.GetFileName(path: strongString)) && !Directory.Exists(path: strongString);
+		return !string.IsNullOrEmpty(value: strongString) && !Directory.Exists(path: strongString);
 	}
 }
 
@@ -58,7 +58,7 @@ public abstract class IsFileName : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !string.IsNullOrEmpty(value: Path.GetFileName(path: strongString)) && !Directory.Exists(path: strongString) && !strongString.Intersect(second: Path.GetInvalidFileNameChars()).Any();
+		return !string.IsNullOrEmpty(value: strongString) && !Directory.Exists(path: strongString) && !strongString.Intersect(second: Path.GetInvalidFileNameChars()).Any();
 	}
 }
 

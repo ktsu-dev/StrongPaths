@@ -8,6 +8,6 @@ public record AnyAbsolutePath : StrongPathAbstract<AnyAbsolutePath, IsPath, IsAb
 public record AnyAbsolutePath<TDerived> : AnyAbsolutePath
 	where TDerived : AnyAbsolutePath<TDerived>
 {
-	public static explicit operator AnyAbsolutePath<TDerived>(char[]? value) { return FromCharArray<TDerived>(value: value); }
-	public static explicit operator AnyAbsolutePath<TDerived>(string? value) { return FromString<TDerived>(value: value); }
+	public static explicit operator AnyAbsolutePath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
+	public static explicit operator AnyAbsolutePath<TDerived>(string? value) => FromString<TDerived>(value: value);
 }
