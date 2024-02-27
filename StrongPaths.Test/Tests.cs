@@ -1,6 +1,7 @@
 namespace ktsu.io.StrongPaths.Test;
 
 #pragma warning disable CS0219
+#pragma warning disable CS1591
 
 [TestClass]
 public class Tests

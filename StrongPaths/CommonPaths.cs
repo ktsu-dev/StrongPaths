@@ -1,3 +1,5 @@
+#pragma warning disable CS1591
+
 namespace ktsu.io.StrongPaths;
 
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2225:Operator overloads have named alternates", Justification = "We're abusing the divide operator here for path syntax so the Divide method doesnt make sense")]

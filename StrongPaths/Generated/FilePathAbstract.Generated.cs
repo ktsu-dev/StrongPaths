@@ -1,3 +1,4 @@
+#pragma warning disable CS1591
 // Generated code. Do not modify.
 namespace ktsu.io.StrongPaths;
 
