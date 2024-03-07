@@ -1,1 +1,1 @@
-A JsonConvertor to convert classes to and from strings if they implement a public static FromString method.
+A library that provides strong typing for common filesystem paths providing compile time feedback and runtime validation.
