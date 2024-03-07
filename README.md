@@ -2,7 +2,7 @@
 
 A library that provides strong typing for common filesystem paths providing compile time feedback and runtime validation.
 
-StrongPaths is a collection of classes derived from `ktsu.io.StrongStrings` with added functionality and helper mthods for filesystem paths.
+StrongPaths is a collection of classes derived from `ktsu.io.StrongStrings` with added functionality and helper methods for filesystem paths.
 
 Get familiar with the [StrongStrings](https://github.com/ktsu-io/StrongStrings) library to get the most out of StrongPaths.
 
