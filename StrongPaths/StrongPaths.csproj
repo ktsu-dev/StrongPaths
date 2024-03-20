@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-      <PackageReference Include="ktsu.io.StrongStrings" Version="1.0.0" />
+      <PackageReference Include="ktsu.io.StrongStrings" Version="1.0.1" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
