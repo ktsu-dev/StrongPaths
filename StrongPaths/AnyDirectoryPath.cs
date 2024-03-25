@@ -2,9 +2,29 @@
 
 namespace ktsu.io.StrongPaths;
 
+using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 
-public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, IsDirectory>;
+public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, IsDirectory>
+{
+	public static Collection<AnyAbsolutePath> GetContents(AnyDirectoryPath directory)
+	{
+		var contents = new Collection<AnyAbsolutePath>();
+		foreach (string path in Directory.GetFileSystemEntries(directory))
+		{
+			if (File.Exists(path))
+			{
+				contents.Add((AbsoluteFilePath)path);
+			}
+			else if (Directory.Exists(path))
+			{
+				contents.Add((AbsoluteDirectoryPath)path);
+			}
+		}
+
+		return contents;
+	}
+}
 
 [SuppressMessage(category: "Usage", checkId: "CA2225:Operator overloads have named alternates", Justification = "The base class already has these")]
 public record AnyDirectoryPath<TDerived> : AnyDirectoryPath
@@ -12,4 +32,6 @@ public record AnyDirectoryPath<TDerived> : AnyDirectoryPath
 {
 	public static explicit operator AnyDirectoryPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
 	public static explicit operator AnyDirectoryPath<TDerived>(string? value) => FromString<TDerived>(value: value);
+
+	public Collection<AnyAbsolutePath> Contents => GetContents(this);
 }
