@@ -7,7 +7,9 @@ using StrongStrings;
 
 public abstract record AnyStrongPath : StrongStringAbstract<AnyStrongPath, IsPath>
 {
-	public bool Exists => Directory.Exists(path: WeakString) || File.Exists(path: WeakString);
+	public bool Exists => IsDirectory || IsFile;
+	public bool IsDirectory => Directory.Exists(path: WeakString);
+	public bool IsFile => File.Exists(path: WeakString);
 }
 
 [SuppressMessage(category: "Usage", checkId: "CA2225:Operator overloads have named alternates", Justification = "The base class already has these")]
