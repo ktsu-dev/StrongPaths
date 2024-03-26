@@ -10,16 +10,23 @@ public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, Is
 	public static Collection<AnyAbsolutePath> GetContents(AnyDirectoryPath directory)
 	{
 		var contents = new Collection<AnyAbsolutePath>();
-		foreach (string path in Directory.GetFileSystemEntries(directory))
+		try
 		{
-			if (File.Exists(path))
+			foreach (string path in Directory.GetFileSystemEntries(directory))
 			{
-				contents.Add((AbsoluteFilePath)path);
+				if (File.Exists(path))
+				{
+					contents.Add((AbsoluteFilePath)path);
+				}
+				else if (Directory.Exists(path))
+				{
+					contents.Add((AbsoluteDirectoryPath)path);
+				}
 			}
-			else if (Directory.Exists(path))
-			{
-				contents.Add((AbsoluteDirectoryPath)path);
-			}
+		}
+		catch (UnauthorizedAccessException)
+		{
+			// Ignore
 		}
 
 		return contents;
