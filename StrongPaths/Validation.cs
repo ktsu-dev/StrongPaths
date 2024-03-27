@@ -10,7 +10,7 @@ public abstract class IsPath : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return strongString.Length is > 0 and <= 256 && !strongString.Intersect(second: Path.GetInvalidPathChars()).Any();
+		return strongString.IsEmpty() || (strongString.Length <= 256 && !strongString.Intersect(second: Path.GetInvalidPathChars()).Any());
 	}
 }
 
@@ -20,7 +20,7 @@ public abstract class IsRelative : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !Path.IsPathFullyQualified(path: strongString);
+		return strongString.IsEmpty() || !Path.IsPathFullyQualified(path: strongString);
 	}
 }
 
@@ -30,7 +30,7 @@ public abstract class IsAbsolute : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return Path.IsPathFullyQualified(path: strongString);
+		return strongString.IsEmpty() || Path.IsPathFullyQualified(path: strongString);
 	}
 }
 
@@ -40,7 +40,7 @@ public abstract class IsDirectory : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !string.IsNullOrEmpty(value: strongString) && !File.Exists(path: strongString);
+		return strongString.IsEmpty() || !File.Exists(path: strongString);
 	}
 }
 
@@ -50,7 +50,7 @@ public abstract class IsFile : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !string.IsNullOrEmpty(value: strongString) && !Directory.Exists(path: strongString);
+		return strongString.IsEmpty() || !Directory.Exists(path: strongString);
 	}
 }
 
@@ -60,7 +60,7 @@ public abstract class IsFileName : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return !string.IsNullOrEmpty(value: strongString) && !Directory.Exists(path: strongString) && !strongString.Intersect(second: Path.GetInvalidFileNameChars()).Any();
+		return strongString.IsEmpty() || (!Directory.Exists(path: strongString) && !strongString.Intersect(second: Path.GetInvalidFileNameChars()).Any());
 	}
 }
 
@@ -103,6 +103,6 @@ public abstract class IsExtension : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return strongString.StartsWith(value: ".", comparisonType: StringComparison.Ordinal);
+		return strongString.IsEmpty() || strongString.StartsWith(value: ".", comparisonType: StringComparison.Ordinal);
 	}
 }
