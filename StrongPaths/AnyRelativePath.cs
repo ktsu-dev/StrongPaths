@@ -3,7 +3,6 @@
 namespace ktsu.io.StrongPaths;
 
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 
 public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRelative>
 {
@@ -14,18 +13,49 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 		ArgumentNullException.ThrowIfNull(from, nameof(from));
 		ArgumentNullException.ThrowIfNull(to, nameof(to));
 
-		var fromInfo = new FileInfo(fileName: from.ToString(provider: CultureInfo.InvariantCulture)!);
-		var toInfo = new FileInfo(fileName: to.ToString(provider: CultureInfo.InvariantCulture)!);
+		var fromInfo = new FileInfo(fileName: Path.GetFullPath(from));
+		var toInfo = new FileInfo(fileName: Path.GetFullPath(to));
 
-		string fromPath = Path.GetFullPath(path: fromInfo.FullName);
-		string toPath = Path.GetFullPath(path: toInfo.FullName);
+		// defining our own directory separator chars because theyre not defined during unit tests which causes the tests to fail
+		// we'll use unix style separators because they work on windows too
+		const string separator = "/";
+		const string altSeparator = "\\";
+
+		string fromPath = Path.GetFullPath(path: fromInfo.FullName).Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
+		string toPath = Path.GetFullPath(path: toInfo.FullName).Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
+
+		bool fromIsDirectory = from switch
+		{
+			AnyDirectoryPath => true,
+			AbsoluteDirectoryPath => true,
+			RelativeDirectoryPath => true,
+			_ => false
+		};
+
+		bool toIsDirectory = to switch
+		{
+			AnyDirectoryPath => true,
+			AbsoluteDirectoryPath => true,
+			RelativeDirectoryPath => true,
+			_ => false
+		};
+
+		if (fromIsDirectory && !fromPath.EndsWith(value: separator, StringComparison.Ordinal))
+		{
+			fromPath += separator;
+		}
+
+		if (toIsDirectory && !toPath.EndsWith(value: separator, StringComparison.Ordinal))
+		{
+			toPath += separator;
+		}
 
 		var fromUri = new Uri(uriString: fromPath);
 		var toUri = new Uri(uriString: toPath);
 
 		var relativeUri = fromUri.MakeRelativeUri(uri: toUri);
-		string relativePath = Uri.UnescapeDataString(stringToUnescape: relativeUri.ToString()).Replace(oldChar: '/', newChar: Path.DirectorySeparatorChar).Replace(oldChar: '\\', newChar: Path.DirectorySeparatorChar);
-
+		string relativePath = Uri.UnescapeDataString(stringToUnescape: relativeUri.ToString());
+		relativePath = relativePath.Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
 		return FromString<TDest>(value: relativePath);
 	}
 }

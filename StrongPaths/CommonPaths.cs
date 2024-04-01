@@ -9,13 +9,13 @@ public sealed record class AbsoluteDirectoryPath : AbsolutePathAbstract<Absolute
 	public static AbsoluteFilePath operator /(AbsoluteDirectoryPath left, FileName right) => (AbsoluteFilePath)$"{left}/{right}";
 	public static AbsoluteFilePath operator /(AbsoluteDirectoryPath left, RelativeFilePath right) => (AbsoluteFilePath)$"{left}/{right}";
 	public static AbsoluteDirectoryPath operator /(AbsoluteDirectoryPath left, RelativeDirectoryPath right) => (AbsoluteDirectoryPath)$"{left}/{right}";
-	public RelativeDirectoryPath RelativeTo(AnyStrongPath other) => AnyRelativePath.Make<RelativeDirectoryPath>(from: this, to: other);
+	public RelativeDirectoryPath RelativeTo(AnyStrongPath other) => AnyRelativePath.Make<RelativeDirectoryPath>(from: other, to: this);
 	public Collection<AnyAbsolutePath> Contents => AnyDirectoryPath.GetContents((AnyDirectoryPath)WeakString);
 	public AbsoluteDirectoryPath Parent => (AbsoluteDirectoryPath)Path.GetDirectoryName(WeakString.Trim(Path.DirectorySeparatorChar).Trim(Path.AltDirectorySeparatorChar));
 }
 public sealed record class AbsoluteFilePath : AbsolutePathAbstract<AbsoluteFilePath, IsFile>
 {
-	public RelativeFilePath RelativeTo(AnyStrongPath other) => AnyRelativePath.Make<RelativeFilePath>(from: this, to: other);
+	public RelativeFilePath RelativeTo(AnyStrongPath other) => AnyRelativePath.Make<RelativeFilePath>(from: other, to: this);
 	/// <summary>
 	///     Returns the last period delimited segment of the FileName including the leading period, or empty if the FileName
 	///     has no extension
@@ -44,13 +44,13 @@ public sealed record class RelativeDirectoryPath : RelativePathAbstract<Relative
 	public static RelativeFilePath operator /(RelativeDirectoryPath left, FileName right) => (RelativeFilePath)$"{left}/{right}";
 	public static RelativeFilePath operator /(RelativeDirectoryPath left, RelativeFilePath right) => (RelativeFilePath)$"{left}/{right}";
 	public static RelativeDirectoryPath operator /(RelativeDirectoryPath left, RelativeDirectoryPath right) => (RelativeDirectoryPath)$"{left}/{right}";
-	public RelativeDirectoryPath RelativeTo(AnyStrongPath other) => Make<RelativeDirectoryPath>(from: this, to: other);
+	public RelativeDirectoryPath RelativeTo(AnyStrongPath other) => Make<RelativeDirectoryPath>(from: other, to: this);
 	public Collection<AnyAbsolutePath> Contents => AnyDirectoryPath.GetContents((AnyDirectoryPath)WeakString);
 	public RelativeDirectoryPath Parent => (RelativeDirectoryPath)Path.GetDirectoryName(WeakString.Trim(Path.DirectorySeparatorChar).Trim(Path.AltDirectorySeparatorChar));
 }
 public sealed record class RelativeFilePath : RelativePathAbstract<RelativeFilePath, IsFile>
 {
-	public RelativeFilePath RelativeTo(AnyStrongPath other) => Make<RelativeFilePath>(from: this, to: other);
+	public RelativeFilePath RelativeTo(AnyStrongPath other) => Make<RelativeFilePath>(from: other, to: this);
 
 	/// <summary>
 	///     Returns the last period delimited segment of the FileName including the leading period, or empty if the FileName

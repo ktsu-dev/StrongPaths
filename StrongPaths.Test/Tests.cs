@@ -1,5 +1,7 @@
 namespace ktsu.io.StrongPaths.Test;
 
+using System.Reflection;
+
 #pragma warning disable CS0219
 #pragma warning disable CS1591
 
@@ -63,5 +65,76 @@ public class Tests
 	{
 		var path = (FileExtension)DotYeet;
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (FileExtension)Yeet);
+	}
+
+	[TestMethod]
+	public void TestRelativeDirectoryPath()
+	{
+		var path = (RelativeDirectoryPath)Yeet;
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (RelativeDirectoryPath)FullyQualifiedPath);
+	}
+
+	[TestMethod]
+	public void TestRelativeFilePath()
+	{
+		var path = (RelativeFilePath)DotYeet;
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (RelativeFilePath)FullyQualifiedPath);
+	}
+
+	[TestMethod]
+	public void TestAnyAbsolutePath()
+	{
+		var path = (AnyAbsolutePath)FullyQualifiedPath;
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (AnyAbsolutePath)Yeet);
+	}
+
+	[TestMethod]
+	public void TestAnyDirectoryPath() => _ = (AnyDirectoryPath)FullyQualifiedPath;
+
+	[TestMethod]
+	public void TestAnyFilePath()
+	{
+		var path = (AnyFilePath)DotYeet;
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (AnyFilePath)Yeet);
+	}
+
+	[TestMethod]
+	public void TestAnyRelativePath()
+	{
+		var path = (AnyRelativePath)Yeet;
+		_ = Assert.ThrowsException<FormatException>(action: () => _ = (AnyRelativePath)FullyQualifiedPath);
+	}
+
+	[TestMethod]
+	public void TestMakeRelativePath()
+	{
+		var path = AnyRelativePath.Make<RelativeFilePath>(from: (AbsoluteDirectoryPath)FullyQualifiedPath, to: (AbsoluteDirectoryPath)FullyQualifiedPath / (FileName)DotYeet);
+		Assert.AreEqual(expected: DotYeet, actual: path);
+	}
+
+	[TestMethod]
+	public void TestFileRelativeTo()
+	{
+		var dir = (AbsoluteDirectoryPath)FullyQualifiedPath;
+		var file = dir / (FileName)DotYeet;
+		var path = file.RelativeTo(other: dir);
+		Assert.AreEqual(expected: DotYeet, actual: path);
+	}
+
+	[TestMethod]
+	public void TestDirectoryRelativeTo()
+	{
+		var dir = (AbsoluteDirectoryPath)FullyQualifiedPath;
+		var file = dir / (FileName)DotYeet;
+		var path = dir.RelativeTo(other: file);
+		Assert.AreEqual(expected: "./", actual: path);
+	}
+
+	[TestMethod]
+	public void TestGetContents()
+	{
+		var path = (AnyDirectoryPath)FullyQualifiedPath;
+		var contents = path.Contents;
+		Assert.IsTrue(contents.Contains((AbsoluteFilePath)Assembly.GetExecutingAssembly().Location));
 	}
 }

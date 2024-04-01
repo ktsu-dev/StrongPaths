@@ -31,6 +31,8 @@ public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, Is
 
 		return contents;
 	}
+
+	public Collection<AnyAbsolutePath> Contents => GetContents(this);
 }
 
 [SuppressMessage(category: "Usage", checkId: "CA2225:Operator overloads have named alternates", Justification = "The base class already has these")]
@@ -39,6 +41,4 @@ public record AnyDirectoryPath<TDerived> : AnyDirectoryPath
 {
 	public static explicit operator AnyDirectoryPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
 	public static explicit operator AnyDirectoryPath<TDerived>(string? value) => FromString<TDerived>(value: value);
-
-	public Collection<AnyAbsolutePath> Contents => GetContents(this);
 }
