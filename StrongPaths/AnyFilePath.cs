@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 public record AnyFilePath : StrongPathAbstract<AnyFilePath, IsPath, IsFile>
 {
 	// ReSharper disable once CollectionNeverUpdated.Global
-	public IList<string> ExpectedFileExtensions { get; init; } = new List<string>();
+	public IList<string> ExpectedFileExtensions { get; init; } = [];
 
 	/// <summary>
 	///     Returns the last period delimited segment of the FileName including the leading period, or empty if the FileName
