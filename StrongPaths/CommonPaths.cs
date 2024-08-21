@@ -3,12 +3,13 @@
 namespace ktsu.io.StrongPaths;
 
 using System.Collections.ObjectModel;
+using ktsu.io.Extensions;
 
 public sealed record class AbsoluteDirectoryPath : AbsolutePathAbstract<AbsoluteDirectoryPath, IsDirectory>
 {
-	public static AbsoluteFilePath operator /(AbsoluteDirectoryPath left, FileName right) => (AbsoluteFilePath)$"{left}/{right}";
-	public static AbsoluteFilePath operator /(AbsoluteDirectoryPath left, RelativeFilePath right) => (AbsoluteFilePath)$"{left}/{right}";
-	public static AbsoluteDirectoryPath operator /(AbsoluteDirectoryPath left, RelativeDirectoryPath right) => (AbsoluteDirectoryPath)$"{left}/{right}";
+	public static AbsoluteFilePath operator /(AbsoluteDirectoryPath left, FileName right) => (AbsoluteFilePath)MakeCanonical($"{left}/{right}");
+	public static AbsoluteFilePath operator /(AbsoluteDirectoryPath left, RelativeFilePath right) => (AbsoluteFilePath)MakeCanonical($"{left}/{right}");
+	public static AbsoluteDirectoryPath operator /(AbsoluteDirectoryPath left, RelativeDirectoryPath right) => (AbsoluteDirectoryPath)MakeCanonical($"{left}/{right}");
 	public RelativeDirectoryPath RelativeTo(AnyStrongPath other) => AnyRelativePath.Make<RelativeDirectoryPath>(from: other, to: this);
 	public Collection<AnyAbsolutePath> Contents => AnyDirectoryPath.GetContents((AnyDirectoryPath)WeakString);
 	public AbsoluteDirectoryPath Parent => (AbsoluteDirectoryPath)Path.GetDirectoryName(WeakString.Trim(Path.DirectorySeparatorChar).Trim(Path.AltDirectorySeparatorChar));
@@ -37,13 +38,19 @@ public sealed record class AbsoluteFilePath : AbsolutePathAbstract<AbsoluteFileP
 
 	public FileName FileName => (FileName)Path.GetFileName(WeakString);
 	public AbsoluteDirectoryPath DirectoryPath => (AbsoluteDirectoryPath)Path.GetDirectoryName(WeakString);
+
+	public AbsoluteFilePath WithFilePrefix(string filePrefix)
+	{
+		string directory = WeakString.RemoveSuffix(FileName);
+		return (AbsoluteFilePath)$"{directory}{filePrefix}{FileName}";
+	}
 }
 
 public sealed record class RelativeDirectoryPath : RelativePathAbstract<RelativeDirectoryPath, IsDirectory>
 {
-	public static RelativeFilePath operator /(RelativeDirectoryPath left, FileName right) => (RelativeFilePath)$"{left}/{right}";
-	public static RelativeFilePath operator /(RelativeDirectoryPath left, RelativeFilePath right) => (RelativeFilePath)$"{left}/{right}";
-	public static RelativeDirectoryPath operator /(RelativeDirectoryPath left, RelativeDirectoryPath right) => (RelativeDirectoryPath)$"{left}/{right}";
+	public static RelativeFilePath operator /(RelativeDirectoryPath left, FileName right) => (RelativeFilePath)MakeCanonical($"{left}/{right}");
+	public static RelativeFilePath operator /(RelativeDirectoryPath left, RelativeFilePath right) => (RelativeFilePath)MakeCanonical($"{left}/{right}");
+	public static RelativeDirectoryPath operator /(RelativeDirectoryPath left, RelativeDirectoryPath right) => (RelativeDirectoryPath)MakeCanonical($"{left}/{right}");
 	public RelativeDirectoryPath RelativeTo(AnyStrongPath other) => Make<RelativeDirectoryPath>(from: other, to: this);
 	public Collection<AnyAbsolutePath> Contents => AnyDirectoryPath.GetContents((AnyDirectoryPath)WeakString);
 	public RelativeDirectoryPath Parent => (RelativeDirectoryPath)Path.GetDirectoryName(WeakString.Trim(Path.DirectorySeparatorChar).Trim(Path.AltDirectorySeparatorChar));
@@ -73,4 +80,10 @@ public sealed record class RelativeFilePath : RelativePathAbstract<RelativeFileP
 
 	public FileName FileName => (FileName)Path.GetFileName(WeakString);
 	public RelativeDirectoryPath DirectoryPath => (RelativeDirectoryPath)Path.GetDirectoryName(WeakString);
+
+	public RelativeFilePath WithFilePrefix(string filePrefix)
+	{
+		string directory = WeakString.RemoveSuffix(FileName);
+		return (RelativeFilePath)$"{directory}{filePrefix}{FileName}";
+	}
 }

@@ -10,6 +10,6 @@ public record AnyFileName : StrongPathAbstract<AnyFileName, IsPath, IsFileName>;
 public record AnyFileName<TDerived> : AnyFileName
 	where TDerived : AnyFileName<TDerived>
 {
-	public static explicit operator AnyFileName<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
-	public static explicit operator AnyFileName<TDerived>(string? value) => FromString<TDerived>(value: value);
+	public static explicit operator AnyFileName<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
+	public static explicit operator AnyFileName<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
 }

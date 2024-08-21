@@ -1,7 +1,4 @@
 namespace ktsu.io.StrongPaths.Test;
-
-using System.Reflection;
-
 #pragma warning disable CS0219
 #pragma warning disable CS1591
 
@@ -92,13 +89,6 @@ public class Tests
 	public void TestAnyDirectoryPath() => _ = (AnyDirectoryPath)FullyQualifiedPath;
 
 	[TestMethod]
-	public void TestAnyFilePath()
-	{
-		var path = (AnyFilePath)DotYeet;
-		_ = Assert.ThrowsException<FormatException>(action: () => _ = (AnyFilePath)Yeet);
-	}
-
-	[TestMethod]
 	public void TestAnyRelativePath()
 	{
 		var path = (AnyRelativePath)Yeet;
@@ -135,6 +125,19 @@ public class Tests
 	{
 		var path = (AnyDirectoryPath)FullyQualifiedPath;
 		var contents = path.Contents;
-		Assert.IsTrue(contents.Contains((AbsoluteFilePath)Assembly.GetExecutingAssembly().Location));
+		var filePath = (AbsoluteDirectoryPath)AppContext.BaseDirectory / (FileName)"ktsu.io.StrongPaths.Test.dll";
+		Assert.IsTrue(contents.Contains(filePath));
+	}
+
+	[TestMethod]
+	public void TestWithFilePrefix()
+	{
+		var absDirectory = (AbsoluteDirectoryPath)FullyQualifiedPath;
+		var absFilePath = absDirectory / (FileName)DotYeet;
+		Assert.IsTrue(absFilePath.WithFilePrefix(Yeet) == absDirectory / (FileName)(Yeet + DotYeet));
+
+		var relDirectory = (RelativeDirectoryPath)Yeet;
+		var relFilePath = relDirectory / (FileName)DotYeet;
+		Assert.IsTrue(relFilePath.WithFilePrefix(Yeet) == relDirectory / (FileName)(Yeet + DotYeet));
 	}
 }
