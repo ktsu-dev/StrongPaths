@@ -38,4 +38,7 @@ public record AnyFilePath<TDerived> : AnyFilePath
 {
 	public static explicit operator AnyFilePath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
 	public static explicit operator AnyFilePath<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
+
+	public new TDerived WithPrefix(string prefix) => (TDerived)$"{prefix}{this}";
+	public new TDerived WithSuffix(string suffix) => (TDerived)$"{this}{suffix}";
 }

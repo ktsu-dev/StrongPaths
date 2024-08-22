@@ -12,4 +12,7 @@ public record AnyAbsolutePath<TDerived> : AnyAbsolutePath
 {
 	public static explicit operator AnyAbsolutePath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
 	public static explicit operator AnyAbsolutePath<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
+
+	public new TDerived WithPrefix(string prefix) => (TDerived)$"{prefix}{this}";
+	public new TDerived WithSuffix(string suffix) => (TDerived)$"{this}{suffix}";
 }

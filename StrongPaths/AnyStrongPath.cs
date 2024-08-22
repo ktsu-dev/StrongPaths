@@ -30,4 +30,7 @@ public abstract record AnyStrongPath<TDerived> : AnyStrongPath
 {
 	public static explicit operator AnyStrongPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
 	public static explicit operator AnyStrongPath<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
+
+	public new TDerived WithPrefix(string prefix) => (TDerived)$"{prefix}{this}";
+	public new TDerived WithSuffix(string suffix) => (TDerived)$"{this}{suffix}";
 }

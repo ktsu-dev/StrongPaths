@@ -12,4 +12,7 @@ public record AnyFileName<TDerived> : AnyFileName
 {
 	public static explicit operator AnyFileName<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
 	public static explicit operator AnyFileName<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
+
+	public new TDerived WithPrefix(string prefix) => (TDerived)$"{prefix}{this}";
+	public new TDerived WithSuffix(string suffix) => (TDerived)$"{this}{suffix}";
 }
