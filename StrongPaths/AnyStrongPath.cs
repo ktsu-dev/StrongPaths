@@ -4,7 +4,7 @@ namespace ktsu.StrongPaths;
 
 using System.Diagnostics.CodeAnalysis;
 using ktsu.Extensions;
-using StrongStrings;
+using ktsu.StrongStrings;
 
 public abstract record AnyStrongPath : StrongStringAbstract<AnyStrongPath, IsPath>
 {

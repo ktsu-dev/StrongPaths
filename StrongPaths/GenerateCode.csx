@@ -1,8 +1,8 @@
-﻿#load "../StrongStrings/StrongStrings/MakeClasses.func.csx"
+#load "../StrongStrings/StrongStrings/MakeClasses.func.csx"
 
-MakeClasses("ktsu.io.StrongPaths", "AnyStrongPath", "StrongPath");
-MakeClasses("ktsu.io.StrongPaths", "AnyRelativePath", "RelativePath");
-MakeClasses("ktsu.io.StrongPaths", "AnyAbsolutePath", "AbsolutePath");
-MakeClasses("ktsu.io.StrongPaths", "AnyFilePath", "FilePath");
-MakeClasses("ktsu.io.StrongPaths", "AnyDirectoryPath", "DirectoryPath");
-MakeClasses("ktsu.io.StrongPaths", "AnyFileName", "FileName");
+MakeClasses("ktsu.StrongPaths", "AnyStrongPath", "StrongPath");
+MakeClasses("ktsu.StrongPaths", "AnyRelativePath", "RelativePath");
+MakeClasses("ktsu.StrongPaths", "AnyAbsolutePath", "AbsolutePath");
+MakeClasses("ktsu.StrongPaths", "AnyFilePath", "FilePath");
+MakeClasses("ktsu.StrongPaths", "AnyDirectoryPath", "DirectoryPath");
+MakeClasses("ktsu.StrongPaths", "AnyFileName", "FileName");
