@@ -125,7 +125,7 @@ public class Tests
 	{
 		var path = (AnyDirectoryPath)FullyQualifiedPath;
 		var contents = path.Contents;
-		var filePath = (AbsoluteDirectoryPath)AppContext.BaseDirectory / (FileName)"ktsu.io.StrongPaths.Test.dll";
+		var filePath = (AbsoluteDirectoryPath)AppContext.BaseDirectory / (FileName)"ktsu.StrongPaths.Test.dll";
 		Assert.IsTrue(contents.Contains(filePath));
 	}
 
