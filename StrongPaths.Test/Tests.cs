@@ -1,4 +1,4 @@
-namespace ktsu.io.StrongPaths.Test;
+namespace ktsu.StrongPaths.Test;
 #pragma warning disable CS0219
 #pragma warning disable CS1591
 
