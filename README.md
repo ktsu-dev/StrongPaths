@@ -2,13 +2,13 @@
 
 A library that provides strong typing for common filesystem paths providing compile time feedback and runtime validation.
 
-StrongPaths is a collection of classes derived from `ktsu.io.StrongStrings` with added functionality and helper methods for filesystem paths.
+StrongPaths is a collection of classes derived from `ktsu.iStrongStrings` with added functionality and helper methods for filesystem paths.
 
-Get familiar with the [StrongStrings](https://github.com/ktsu-io/StrongStrings) library to get the most out of StrongPaths.
+Get familiar with the [StrongStrings](https://github.com/ktsu-dev/StrongStrings) library to get the most out of StrongPaths.
 
 ## Usage
 ```csharp
-using ktsu.io.StrongPaths;
+using ktsu.StrongPaths;
 
 public class MyDemoClass
 {
@@ -64,7 +64,7 @@ You can use these abstract base classes to accept a subset of path types in your
 - `AnyFilePath` Accepts `FilePath`, `AbsoluteFilePath`, `RelativeFilePath`, and types derived from them
 
 ```csharp
-using ktsu.io.StrongPaths;
+using ktsu.StrongPaths;
 
 public static class MyDemoClass
 {
