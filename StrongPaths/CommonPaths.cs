@@ -1,9 +1,9 @@
 #pragma warning disable CS1591
 
-namespace ktsu.io.StrongPaths;
+namespace ktsu.StrongPaths;
 
 using System.Collections.ObjectModel;
-using ktsu.io.Extensions;
+using ktsu.Extensions;
 
 public sealed record class AbsoluteDirectoryPath : AbsolutePathAbstract<AbsoluteDirectoryPath, IsDirectory>
 {

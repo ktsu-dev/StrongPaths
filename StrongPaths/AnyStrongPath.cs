@@ -1,9 +1,9 @@
 #pragma warning disable CS1591
 
-namespace ktsu.io.StrongPaths;
+namespace ktsu.StrongPaths;
 
 using System.Diagnostics.CodeAnalysis;
-using ktsu.io.Extensions;
+using ktsu.Extensions;
 using StrongStrings;
 
 public abstract record AnyStrongPath : StrongStringAbstract<AnyStrongPath, IsPath>
