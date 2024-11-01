@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-      <PackageReference Include="ktsu.Extensions" Version="1.0.21" />
-      <PackageReference Include="ktsu.StrongStrings" Version="1.2.8" />
+      <PackageReference Include="ktsu.Extensions" Version="1.0.22" />
+      <PackageReference Include="ktsu.StrongStrings" Version="1.2.9" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
