@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-      <PackageReference Include="ktsu.Extensions" Version="1.0.24" />
+      <PackageReference Include="ktsu.Extensions" Version="1.0.25" />
       <PackageReference Include="ktsu.StrongStrings" Version="1.2.10" />
     </ItemGroup>
 
