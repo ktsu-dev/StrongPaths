@@ -30,7 +30,7 @@ public abstract class IsAbsolute : IValidator
 	{
 		ArgumentNullException.ThrowIfNull(strongString);
 
-		return strongString.IsEmpty() || Path.IsPathFullyQualified(path: strongString);
+		return strongString.IsEmpty() || Path.IsPathFullyQualified(path: strongString + Path.DirectorySeparatorChar);
 	}
 }
 
