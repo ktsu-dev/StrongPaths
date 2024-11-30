@@ -64,8 +64,8 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 public record AnyRelativePath<TDerived> : AnyRelativePath
 	where TDerived : AnyRelativePath<TDerived>
 {
-	public static explicit operator AnyRelativePath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
-	public static explicit operator AnyRelativePath<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
+	public static explicit operator AnyRelativePath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
+	public static explicit operator AnyRelativePath<TDerived>(string? value) => FromString<TDerived>(value: value);
 
 	public new TDerived WithPrefix(string prefix) => (TDerived)$"{prefix}{this}";
 	public new TDerived WithSuffix(string suffix) => (TDerived)$"{this}{suffix}";

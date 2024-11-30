@@ -7,7 +7,7 @@ public class Tests
 {
 	private static string Yeet => "Yeet";
 	private static string DotYeet => ".Yeet";
-	private static string KtsuDotIoDotYeet => "ktsu.io.Yeet";
+	private static string KtsuDotDevDotYeet => "ktsu.Dev.Yeet";
 	private static string FullyQualifiedPath => Environment.CurrentDirectory;
 
 	[TestMethod]
@@ -44,7 +44,7 @@ public class Tests
 	public void TestDirectoryPath()
 	{
 		var path = (DirectoryPath)FullyQualifiedPath;
-		var path2 = (DirectoryPath)KtsuDotIoDotYeet;
+		var path2 = (DirectoryPath)KtsuDotDevDotYeet;
 		File.WriteAllText(path: DotYeet, contents: Yeet);
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (DirectoryPath)DotYeet);
 	}
@@ -117,7 +117,7 @@ public class Tests
 		var dir = (AbsoluteDirectoryPath)FullyQualifiedPath;
 		var file = dir / (FileName)DotYeet;
 		var path = dir.RelativeTo(other: file);
-		Assert.AreEqual(expected: "./", actual: path);
+		Assert.AreEqual(expected: ".", actual: path);
 	}
 
 	[TestMethod]

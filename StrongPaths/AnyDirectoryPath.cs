@@ -39,8 +39,8 @@ public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, Is
 public record AnyDirectoryPath<TDerived> : AnyDirectoryPath
 	where TDerived : AnyDirectoryPath<TDerived>
 {
-	public static explicit operator AnyDirectoryPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: MakeCanonical(value));
-	public static explicit operator AnyDirectoryPath<TDerived>(string? value) => FromString<TDerived>(value: MakeCanonical(value));
+	public static explicit operator AnyDirectoryPath<TDerived>(char[]? value) => FromCharArray<TDerived>(value: value);
+	public static explicit operator AnyDirectoryPath<TDerived>(string? value) => FromString<TDerived>(value: value);
 
 	public new TDerived WithPrefix(string prefix) => (TDerived)$"{prefix}{this}";
 	public new TDerived WithSuffix(string suffix) => (TDerived)$"{this}{suffix}";
