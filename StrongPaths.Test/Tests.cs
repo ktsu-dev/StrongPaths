@@ -134,10 +134,10 @@ public class Tests
 	{
 		var absDirectory = (AbsoluteDirectoryPath)FullyQualifiedPath;
 		var absFilePath = absDirectory / (FileName)DotYeet;
-		Assert.IsTrue(absFilePath.WithFilePrefix(Yeet) == absDirectory / (FileName)(Yeet + DotYeet));
+		Assert.AreEqual(absDirectory / (FileName)(Yeet + DotYeet), absFilePath.WithFilePrefix(Yeet));
 
 		var relDirectory = (RelativeDirectoryPath)Yeet;
 		var relFilePath = relDirectory / (FileName)DotYeet;
-		Assert.IsTrue(relFilePath.WithFilePrefix(Yeet) == relDirectory / (FileName)(Yeet + DotYeet));
+		Assert.AreEqual(relDirectory / (FileName)(Yeet + DotYeet), relFilePath.WithFilePrefix(Yeet));
 	}
 }
