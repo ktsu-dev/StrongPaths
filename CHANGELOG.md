@@ -1,47 +1,42 @@
-## v1.1.50 (unknown)
-
-Changes since v1.1.50-pre.4:
-
-- Add automation scripts for metadata management and versioning ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
-
-## v1.1.50-pre.1 (patch)
+## v1.1.50 (patch)
 
 Changes since v1.1.49:
 
-- Renamed metadata files ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Add automation scripts for metadata management and versioning ([@matt-edmondson](https://github.com/matt-edmondson))
+- Renamed metadata files ([@matt-edmondson](https://github.com/matt-edmondson))
 
 ## v1.1.45 (patch)
 
 Changes since v1.1.44:
 
-- Replace LICENSE file with LICENSE.md and update copyright information ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Replace LICENSE file with LICENSE.md and update copyright information ([@matt-edmondson](https://github.com/matt-edmondson))
 
 ## v1.1.38 (patch)
 
 Changes since v1.1.37:
 
-- Refactor test assertions in Tests.cs ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
-- Update StrongStrings subproject reference ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Refactor test assertions in Tests.cs ([@matt-edmondson](https://github.com/matt-edmondson))
+- Update StrongStrings subproject reference ([@matt-edmondson](https://github.com/matt-edmondson))
 
 ## v1.1.29 (patch)
 
 Changes since v1.1.28:
 
-- Ensure paths are fully qualified in IsValid method ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Ensure paths are fully qualified in IsValid method ([@matt-edmondson](https://github.com/matt-edmondson))
 
 ## v1.1.28 (patch)
 
 Changes since v1.1.27:
 
-- Refactor MakeCanonical and update Tests.cs namespace ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Refactor MakeCanonical and update Tests.cs namespace ([@matt-edmondson](https://github.com/matt-edmondson))
 
 ## v1.1.2 (minor)
 
 Changes since v1.0.8:
 
-- Add WithFilePrefix ([@Matt Edmondson](https://github.com/Matt Edmondson))
-- Fix crash when using prefix/suffix methods ([@Matt Edmondson](https://github.com/Matt Edmondson))
-- Migrate ktsu.io to ktsu namespace ([@Matt Edmondson](https://github.com/Matt Edmondson))
+- Add WithFilePrefix ([@matt-edmondson](https://github.com/matt-edmondson))
+- Fix crash when using prefix/suffix methods ([@matt-edmondson](https://github.com/matt-edmondson))
+- Migrate ktsu.io to ktsu namespace ([@matt-edmondson](https://github.com/matt-edmondson))
 
 ## v1.0.8 (major)
 
@@ -54,24 +49,24 @@ Changes since 0.0.0.0:
 - Add path combine operators to common path types ([@matt-edmondson](https://github.com/matt-edmondson))
 - Add RelativeTo helper methods ([@matt-edmondson](https://github.com/matt-edmondson))
 - Add some common path types like absolute and relative file and directory paths ([@matt-edmondson](https://github.com/matt-edmondson))
-- Adjust unit test to work on linux ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Adjust unit test to work on linux ([@matt-edmondson](https://github.com/matt-edmondson))
 - Allow paths to be empty ([@matt-edmondson](https://github.com/matt-edmondson))
 - Assign dependabot PRs to matt ([@matt-edmondson](https://github.com/matt-edmondson))
 - Avoid double upload of symbols package ([@matt-edmondson](https://github.com/matt-edmondson))
-- Bump version to 1.0.0-alpha.2 ([@Matt Edmondson](https://github.com/Matt Edmondson))
-- Chnage path separators to make code gen work on github ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Bump version to 1.0.0-alpha.2 ([@matt-edmondson](https://github.com/matt-edmondson))
+- Chnage path separators to make code gen work on github ([@matt-edmondson](https://github.com/matt-edmondson))
 - Create dependabot-merge.yml ([@matt-edmondson](https://github.com/matt-edmondson))
 - Create VERSION ([@matt-edmondson](https://github.com/matt-edmondson))
 - Don't crash when trying to get the contents of an unauthorized directory, just return nothing instead ([@matt-edmondson](https://github.com/matt-edmondson))
 - Dont try to push packages when building pull requests ([@matt-edmondson](https://github.com/matt-edmondson))
 - Enable dependabot and sourcelink ([@matt-edmondson](https://github.com/matt-edmondson))
 - Fix issue with RelativeTo not working correctly and add additional unit tests ([@matt-edmondson](https://github.com/matt-edmondson))
-- Fix style warnings for ArgumentNullException.ThrowIfNull and take latest StrongStrings ([@Matt Edmondson](https://github.com/Matt Edmondson))
+- Fix style warnings for ArgumentNullException.ThrowIfNull and take latest StrongStrings ([@matt-edmondson](https://github.com/matt-edmondson))
 - Fixed an issue where a directory in the CWD that had periods in the name would not validate as a directory path. Also code style cleanup. ([@matt-edmondson](https://github.com/matt-edmondson))
 - Initial WIP commit ([@matt-edmondson](https://github.com/matt-edmondson))
 - Make the RelativePath Make method public Add a FileName property to AnyStrongPath Take latest StrongStrings ([@matt-edmondson](https://github.com/matt-edmondson))
-- Make unit tests work on linux ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
-- Make unit tests work with linux ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Make unit tests work on linux ([@matt-edmondson](https://github.com/matt-edmondson))
+- Make unit tests work with linux ([@matt-edmondson](https://github.com/matt-edmondson))
 - Migrate from .project.props to Directory.Build.props ([@matt-edmondson](https://github.com/matt-edmondson))
 - Move some file specific properties into AnyFilePath add a DirectoryPath property to FilePath ([@matt-edmondson](https://github.com/matt-edmondson))
 - Read from AUTHORS file during build ([@matt-edmondson](https://github.com/matt-edmondson))
@@ -90,8 +85,8 @@ Changes since 0.0.0.0:
 - Update README.md ([@matt-edmondson](https://github.com/matt-edmondson))
 - Update StrongStrings ([@matt-edmondson](https://github.com/matt-edmondson))
 - Use code generation to make all the user facing classes and add some unit tests ([@matt-edmondson](https://github.com/matt-edmondson))
-- Use package reference instead of project reference to StrongStrings ([@Matt Edmondson](https://github.com/Matt Edmondson))
-- WIP ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
-- WIP while trying to figure out the use cases for StrongStrings ([@Matthew Edmondson](https://github.com/Matthew Edmondson))
+- Use package reference instead of project reference to StrongStrings ([@matt-edmondson](https://github.com/matt-edmondson))
+- WIP ([@matt-edmondson](https://github.com/matt-edmondson))
+- WIP while trying to figure out the use cases for StrongStrings ([@matt-edmondson](https://github.com/matt-edmondson))
 
 
