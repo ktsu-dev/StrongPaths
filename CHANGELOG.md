@@ -5,13 +5,6 @@ Changes since v1.1.49:
 - Add automation scripts for metadata management and versioning ([@matt-edmondson](https://github.com/matt-edmondson))
 - Renamed metadata files ([@matt-edmondson](https://github.com/matt-edmondson))
 
-## v1.1.50 (patch)
-
-Changes since v1.1.49:
-
-- Add automation scripts for metadata management and versioning ([@matt-edmondson](https://github.com/matt-edmondson))
-- Renamed metadata files ([@matt-edmondson](https://github.com/matt-edmondson))
-
 ## v1.1.45 (patch)
 
 Changes since v1.1.44:
