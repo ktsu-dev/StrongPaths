@@ -3,6 +3,7 @@
 namespace ktsu.StrongPaths;
 
 using System.Diagnostics.CodeAnalysis;
+
 using ktsu.Extensions;
 using ktsu.StrongStrings;
 

@@ -3,6 +3,7 @@
 namespace ktsu.StrongPaths;
 
 using System.Collections.ObjectModel;
+
 using ktsu.Extensions;
 
 public sealed record class AbsoluteDirectoryPath : AbsolutePathAbstract<AbsoluteDirectoryPath, IsDirectory>

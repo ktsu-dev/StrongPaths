@@ -15,7 +15,7 @@ public class Tests
 	{
 		var path1 = (StrongPath)Yeet;
 		var path2 = (StrongPath)FullyQualifiedPath;
-		_ = Assert.ThrowsException<ArgumentNullException>(action: () => { _ = (StrongPath)(string)null!; });
+		_ = Assert.ThrowsException<ArgumentNullException>(action: () => _ = (StrongPath)(string)null!);
 		_ = Assert.ThrowsException<FormatException>(action: () => _ = (StrongPath)Path.GetInvalidFileNameChars());
 	}
 
