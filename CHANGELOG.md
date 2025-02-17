@@ -1,3 +1,18 @@
+## v1.2.0 (minor)
+
+Changes since 1.1.0:
+
+- Add automation scripts for metadata management and versioning ([@matt-edmondson](https://github.com/matt-edmondson))
+- Apply new editorconfig ([@matt-edmondson](https://github.com/matt-edmondson))
+- Ensure paths are fully qualified in IsValid method ([@matt-edmondson](https://github.com/matt-edmondson))
+- Fix crash when using prefix/suffix methods ([@matt-edmondson](https://github.com/matt-edmondson))
+- Migrate ktsu.io to ktsu namespace ([@matt-edmondson](https://github.com/matt-edmondson))
+- Refactor MakeCanonical and update Tests.cs namespace ([@matt-edmondson](https://github.com/matt-edmondson))
+- Refactor test assertions in Tests.cs ([@matt-edmondson](https://github.com/matt-edmondson))
+- Renamed metadata files ([@matt-edmondson](https://github.com/matt-edmondson))
+- Replace LICENSE file with LICENSE.md and update copyright information ([@matt-edmondson](https://github.com/matt-edmondson))
+- Update StrongStrings subproject reference ([@matt-edmondson](https://github.com/matt-edmondson))
+
 ## v1.1.50 (patch)
 
 Changes since v1.1.49:
