@@ -1,3 +1,7 @@
+// Copyright (c) ktsu.dev
+// All rights reserved.
+// Licensed under the MIT license.
+
 #pragma warning disable CS1591
 
 namespace ktsu.StrongPaths;
@@ -17,7 +21,7 @@ public record AnyFilePath : StrongPathAbstract<AnyFilePath, IsPath, IsFile>
 	{
 		get
 		{
-			string ext = WeakString.Split(separator: '.').Last();
+			var ext = WeakString.Split(separator: '.').Last();
 			return ext == WeakString ? (FileExtension)string.Empty : (FileExtension)ext.Prepend(element: '.');
 		}
 	}

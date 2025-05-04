@@ -1,3 +1,7 @@
+// Copyright (c) ktsu.dev
+// All rights reserved.
+// Licensed under the MIT license.
+
 #pragma warning disable CS1591
 
 namespace ktsu.StrongPaths;
@@ -26,7 +30,7 @@ public sealed record class AbsoluteFilePath : AbsolutePathAbstract<AbsoluteFileP
 	{
 		get
 		{
-			string ext = WeakString.Split(separator: '.').Last();
+			var ext = WeakString.Split(separator: '.').Last();
 			return ext == WeakString ? (FileExtension)string.Empty : (FileExtension)ext.Prepend(element: '.');
 		}
 	}
@@ -42,7 +46,7 @@ public sealed record class AbsoluteFilePath : AbsolutePathAbstract<AbsoluteFileP
 
 	public AbsoluteFilePath WithFilePrefix(string filePrefix)
 	{
-		string directory = WeakString.RemoveSuffix(FileName);
+		var directory = WeakString.RemoveSuffix(FileName);
 		return (AbsoluteFilePath)$"{directory}{filePrefix}{FileName}";
 	}
 }
@@ -68,7 +72,7 @@ public sealed record class RelativeFilePath : RelativePathAbstract<RelativeFileP
 	{
 		get
 		{
-			string ext = WeakString.Split(separator: '.').Last();
+			var ext = WeakString.Split(separator: '.').Last();
 			return ext == WeakString ? (FileExtension)string.Empty : (FileExtension)ext.Prepend(element: '.');
 		}
 	}
@@ -84,7 +88,7 @@ public sealed record class RelativeFilePath : RelativePathAbstract<RelativeFileP
 
 	public RelativeFilePath WithFilePrefix(string filePrefix)
 	{
-		string directory = WeakString.RemoveSuffix(FileName);
+		var directory = WeakString.RemoveSuffix(FileName);
 		return (RelativeFilePath)$"{directory}{filePrefix}{FileName}";
 	}
 }

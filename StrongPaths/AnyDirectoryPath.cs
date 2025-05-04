@@ -1,3 +1,7 @@
+// Copyright (c) ktsu.dev
+// All rights reserved.
+// Licensed under the MIT license.
+
 #pragma warning disable CS1591
 
 namespace ktsu.StrongPaths;
@@ -12,7 +16,7 @@ public record AnyDirectoryPath : StrongPathAbstract<AnyDirectoryPath, IsPath, Is
 		var contents = new Collection<AnyAbsolutePath>();
 		try
 		{
-			foreach (string path in Directory.GetFileSystemEntries(directory))
+			foreach (var path in Directory.GetFileSystemEntries(directory))
 			{
 				if (File.Exists(path))
 				{

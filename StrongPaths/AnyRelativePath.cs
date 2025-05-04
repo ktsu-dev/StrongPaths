@@ -1,3 +1,7 @@
+// Copyright (c) ktsu.dev
+// All rights reserved.
+// Licensed under the MIT license.
+
 #pragma warning disable CS1591
 
 namespace ktsu.StrongPaths;
@@ -21,10 +25,10 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 		const string separator = "/";
 		const string altSeparator = "\\";
 
-		string fromPath = Path.GetFullPath(path: fromInfo.FullName).Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
-		string toPath = Path.GetFullPath(path: toInfo.FullName).Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
+		var fromPath = Path.GetFullPath(path: fromInfo.FullName).Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
+		var toPath = Path.GetFullPath(path: toInfo.FullName).Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
 
-		bool fromIsDirectory = from switch
+		var fromIsDirectory = from switch
 		{
 			AnyDirectoryPath => true,
 			AbsoluteDirectoryPath => true,
@@ -32,7 +36,7 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 			_ => false
 		};
 
-		bool toIsDirectory = to switch
+		var toIsDirectory = to switch
 		{
 			AnyDirectoryPath => true,
 			AbsoluteDirectoryPath => true,
@@ -54,7 +58,7 @@ public record AnyRelativePath : StrongPathAbstract<AnyRelativePath, IsPath, IsRe
 		var toUri = new Uri(uriString: toPath);
 
 		var relativeUri = fromUri.MakeRelativeUri(uri: toUri);
-		string relativePath = Uri.UnescapeDataString(stringToUnescape: relativeUri.ToString());
+		var relativePath = Uri.UnescapeDataString(stringToUnescape: relativeUri.ToString());
 		relativePath = relativePath.Replace(oldValue: altSeparator, newValue: separator, StringComparison.Ordinal);
 		return FromString<TDest>(value: relativePath);
 	}
