@@ -1,6 +1,6 @@
 MIT License
 
-https://github.com/ktsu-dev/ktsu-dev/StrongPaths
+https://github.com/ktsu-dev/StrongPaths
 
 Copyright (c) 2023-2025 ktsu-dev
 
